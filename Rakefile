@@ -7,7 +7,7 @@ require './lib/story-helper/version'
 
 PKG_NAME      = "story-helper"
 PKG_BUILD     = ENV['PKG_BUILD'] ? '.' + ENV['PKG_BUILD'] : ''
-version = CapistranoExtensions::Version::STRING.dup
+version = StoryHelper::Version::STRING.dup
 if ENV['SNAPSHOT'].to_i == 1
   version << "." << Time.now.utc.strftime("%Y%m%d%H%M%S")
 end
