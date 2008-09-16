@@ -1,0 +1,7 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/story_helper
+lib/story_helper.rb
+test/test_story_helper.rb
