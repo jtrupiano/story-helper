@@ -28,23 +28,23 @@ class Storify
 
     # lib/story_helper.rb
     story_helper_rb = File.join(rails_root, 'lib', 'story_helper.rb')
-    gem_story_helper_rb = File.dirname(__FILE__) + '/../lib/conf/story_helper.rb'
+    gem_story_helper_rb = File.dirname(__FILE__) + '/../lib/story-helper/conf/story_helper.rb'
     copy_if_missing(gem_story_helper_rb, story_helper_rb)
 
     # lib/story_accessors.rb
     story_accessors_rb = File.join(rails_root, 'lib', 'story_accessors.rb')
-    gem_story_accessors_rb = File.dirname(__FILE__) + '/../lib/conf/story_accessors.rb'
+    gem_story_accessors_rb = File.dirname(__FILE__) + '/../lib/story-helper/conf/story_accessors.rb'
     copy_if_missing(gem_story_accessors_rb, story_accessors_rb)
 
     # lib/tasks/story_helper.rake
     story_helper_rake = File.join(rails_root, 'lib', 'tasks', 'story_helper.rake')
-    gem_story_helper_rake = File.dirname(__FILE__) + '/../lib/conf/story_helper.rake'
+    gem_story_helper_rake = File.dirname(__FILE__) + '/../lib/story-helper/conf/story_helper.rake'
     copy_if_missing(gem_story_helper_rake, story_helper_rake)
   end
   
   private
     def self.copy_if_missing(from, to)
-      if !File.exists?(from)
+      if !File.exists?(to)
         puts "cp #{from} #{to}"
         cp(from, to)
       else
