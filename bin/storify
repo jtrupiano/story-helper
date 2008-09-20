@@ -23,9 +23,7 @@ class Storify
   def self.run!
     rails_root = ARGV[0] || '.'
     puts "rails_root: #{rails_root}"
-    config_base = File.join(rails_root, 'config')
-    old_env_dir = File.join(config_base, 'environments')
-
+    
     # lib/story_helper.rb
     story_helper_rb = File.join(rails_root, 'lib', 'story_helper.rb')
     gem_story_helper_rb = File.dirname(__FILE__) + '/../lib/story-helper/conf/story_helper.rb'
@@ -42,6 +40,23 @@ class Storify
     copy_if_missing(gem_story_helper_rake, story_helper_rake)
   end
   
+  def self.cleanup!
+    rails_root = ARGV[0] || '.'
+    puts "rails_root: #{rails_root}"
+    
+    # lib/story_helper.rb
+    story_helper_rb = File.join(rails_root, 'lib', 'story_helper.rb')
+    delete_unless_missing(story_helper_rb)
+
+    # lib/story_accessors.rb
+    story_accessors_rb = File.join(rails_root, 'lib', 'story_accessors.rb')
+    delete_unless_missing(story_accessors_rb)
+
+    # lib/tasks/story_helper.rake
+    story_helper_rake = File.join(rails_root, 'lib', 'tasks', 'story_helper.rake')
+    delete_unless_missing(story_helper_rake)
+  end
+  
   private
     def self.copy_if_missing(from, to)
       if !File.exists?(to)
@@ -52,7 +67,21 @@ class Storify
       end
     end
     
+    def self.delete_unless_missing(file)
+      if File.exists?(file)
+        cmd = "rm #{file}"
+        puts cmd
+        rm_f(file)
+      else
+        puts "Deleting #{file}....doesn't exist."
+      end
+    end
+    
 end
 
-Storify.run!
-puts "Don't forget to include StoryAccessors::Methods into your test_helper."
+if ARGV.size > 1 && ARGV[1] == "cleanup"
+  Storify.cleanup!
+else
+  Storify.run!
+  puts "Don't forget to include StoryAccessors::Methods into your test_helper."
+end
