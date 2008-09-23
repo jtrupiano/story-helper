@@ -6,6 +6,7 @@ namespace :db do
   desc "Load dev data into the current environment's database."
   task :load_stories => :environment do
     StoryHelper.purge_all_data
+    # Rake::Task['db:fixtures:load'].invoke
     StoryHelper.load_all
   end  
 end

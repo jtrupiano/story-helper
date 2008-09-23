@@ -5,13 +5,13 @@ class StoryHelper
 
   def self.load_all
     # Load data via Ruby -- your models are accessible here, so use those functions to create complex data!
-  
+    #self.load_all
   end
   
   # 
   def self.purge_all_data
     # Manually delete from all models and non-model join tables
-    
+    #self.purge_all_data
   end
   
 end

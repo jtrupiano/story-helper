@@ -1,20 +1,3 @@
-    
-module StoryAccessors
-  
-  module Methods
-
-    ####### Accounts #######
-    # %w(amy sarah joanne julia erin).each do |acct|
-    #   meta_accessor(acct.to_s, Account, "login")
-    # end
-    
-
-  end
-  
-end
-
-
-
 # Defines a basic cached accessor
 def meta_accessor(accessor, klass, find_by_field="name", field_value=accessor)
   src = <<-RUBY
@@ -39,4 +22,17 @@ def scoped_meta_accessor(model_str, key, value, scoped_type, scoped_type_id, def
     end
   RUBY
   class_eval src, __FILE__, __LINE__
+end
+
+module StoryAccessors
+  
+  module Methods
+
+    ####### Accounts #######
+    # %w(amy sarah joanne julia erin).each do |acct|
+    #   meta_accessor(acct.to_s, Account, "login")
+    # end
+    
+  end
+  
 end
