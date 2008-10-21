@@ -4,11 +4,16 @@
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Provides very basic baseline for using direct Ruby to define your test data and test accessors.  Still a work in progress,
+but something we use at SLS in lieu of fixtures.  More details to come as this becomes more useful to others.
+
+There's some information on the wiki regarding how to use it in conjunction with fixtures.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* not entirely DRY (requires you to define your accessors in addition to your test data -- this should be able to be automated)
+* could auto-convert existing fixtures
+* should only be used in conjunction with pre-built test databases (in other words, no dropping and recreating for each test case -- use DB transactions instead)
 
 == SYNOPSIS:
 
@@ -20,7 +25,7 @@ FIX (describe your package)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install story-helper
 
 == LICENSE:
 

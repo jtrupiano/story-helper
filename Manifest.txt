@@ -7,6 +7,7 @@ lib/story-helper.rb
 lib/story-helper/conf/story_accessors.rb
 lib/story-helper/conf/story_helper.rake
 lib/story-helper/conf/story_helper.rb
+lib/story-helper/conf/test_helper_extensions.rb
 lib/story-helper/version.rb
 story-helper.gemspec
 test/rails_version_test.rb
