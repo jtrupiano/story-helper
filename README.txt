@@ -17,7 +17,11 @@ There's some information on the wiki regarding how to use it in conjunction with
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+from RAILS_ROOT
+* storify .
+
+Implement StoryHelper#purge_all_data and StoryHelper#load_all in lib/story_helper.rb
+* rake db:stories:load RAILS_ENV=____
 
 == REQUIREMENTS:
 
@@ -25,7 +29,8 @@ There's some information on the wiki regarding how to use it in conjunction with
 
 == INSTALL:
 
-* sudo gem install story-helper
+* sudo gem install story-helper (stable version from RubyForge)
+* sudo gem install jtrupiano-story-helper (HEAD of the repo from github)
 
 == LICENSE:
 
