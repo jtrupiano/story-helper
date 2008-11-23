@@ -47,7 +47,7 @@ namespace :test do
     t.pattern = 'test/integration/**/*_test.rb'
     t.verbose = true
   end
-  Rake::Task['test:integrations'].comment = "StoryHelper: Run the integration tests in test/integration.  Your test data MUST be preloaded into the database."
+  Rake::Task['test:integration'].comment = "StoryHelper: Run the integration tests in test/integration.  Your test data MUST be preloaded into the database."
   
   desc "StoryHelper: Run unit and functional tests.  Your test data MUST be preloaded into the database."
   task :all => [:units, :functionals, :integration]
