@@ -47,7 +47,7 @@ namespace :db do
 end
 
 # First, delete the Tasks we wish to override
-["functionals", "units", "integrations", "all"].each do |tt|
+["functionals", "units", "integration", "all"].each do |tt|
   Rake.application.send(:eval, "@tasks.delete('test:#{tt}')")
 end
 
@@ -67,13 +67,13 @@ namespace :test do
   end
   Rake::Task['test:functionals'].comment = "StoryHelper: Run the functional tests in test/functional.  Your test data MUST be preloaded into the database."
   
-  Rake::TestTask.new(:integrations) do |t|
+  Rake::TestTask.new(:integration) do |t|
     t.libs << "test"
     t.pattern = 'test/integration/**/*_test.rb'
     t.verbose = true
   end
-  Rake::Task['test:integrations'].comment = "StoryHelper: Run the integration tests in test/integration.  Your test data MUST be preloaded into the database."
+  Rake::Task['test:integration'].comment = "StoryHelper: Run the integration tests in test/integration.  Your test data MUST be preloaded into the database."
   
   desc "StoryHelper: Run unit and functional tests.  Your test data MUST be preloaded into the database."
-  task :all => [:units, :functionals, :integrations]
+  task :all => [:units, :functionals, :integration]
 end
